@@ -42,18 +42,15 @@ public class App
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(inputFileName);
         JSONArray infoArray = (JSONArray) jsonObject.get("poem");
-        
-        for(int i=0; i<infoArray.size();i++){
-        	int j=0;
-        	//data를 받아왔음.
-        	String tempString = jsonObject.get("item").toString();
-        	String[] tempChar = tempString.split("\\s");
-        	for(j=0; j<infoArray.size();j++){
-        	   if(s==tempChar[j]){
-        	   System.out.println("item"+i+ ":" + jsonObject.get("item"));
-        	   }
+ int i;
+        for(i=0; i<jsonObject.size(); i++) {
+        	JSONObject object = (JSONObject)infoArray.get(i);
+        	if(s==object.get("item")) {
+        		
+        		System.out.println("item"+i+ object.get("item"));
         	}
-        	}
+        	
+        }
 
         
 
